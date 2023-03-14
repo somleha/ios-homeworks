@@ -19,16 +19,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let profileNavigationController = UINavigationController(rootViewController: ProfileViewController())
         let feedNavigationController = UINavigationController(rootViewController: FeedViewController())
         
-        //MARK: - Cделаем TabBar
+        //MARK: - Cделаем TabBar и настроим цвета
         let tabBarController = UITabBarController()
-        tabBarController.tabBar.backgroundColor = .systemGray
-        tabBarController.tabBar.unselectedItemTintColor = .systemBlue
-        tabBarController.tabBar.tintColor = .systemRed
+        tabBarController.tabBar.backgroundColor = .white
+        tabBarController.tabBar.unselectedItemTintColor = .lightGray
+        tabBarController.tabBar.tintColor = .systemBlue
         
-        tabBarController.viewControllers = [profileNavigationController, feedNavigationController]
-        profileNavigationController.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(systemName: "person.circle.fill"), tag: 0)
-        feedNavigationController.tabBarItem = UITabBarItem(title: "Feed", image: UIImage(systemName: "newspaper.circle.fill"), tag: 1)
-        
+        tabBarController.viewControllers = [feedNavigationController, profileNavigationController]
+        feedNavigationController.tabBarItem = UITabBarItem(title: "Feed", image: UIImage(systemName: "newspaper.circle.fill"), tag: 0)
+        profileNavigationController.tabBarItem = UITabBarItem(title: "Profile", image: UIImage(systemName: "person.circle.fill"), tag: 1)
         tabBarController.selectedIndex = 0
         window.rootViewController = tabBarController
     }

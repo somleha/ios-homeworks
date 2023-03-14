@@ -36,7 +36,6 @@ class InfoViewController: UIViewController {
         let cancelButton = UIAlertAction(title: "Cancel", style: .cancel)
         alert.addAction(pieButton)
         alert.addAction(cancelButton)
-        
         present(alert, animated: true)
     }
     

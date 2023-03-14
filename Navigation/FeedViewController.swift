@@ -19,9 +19,10 @@ class FeedViewController: UIViewController {
         button.setTitleColor(.black, for: .normal)
         return button
     }()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .systemBlue
+        title = "Feed"
         view.addSubview(actionButton)
         
         let safeArea = view.safeAreaLayoutGuide
@@ -29,8 +30,6 @@ class FeedViewController: UIViewController {
             actionButton.centerXAnchor.constraint(equalTo: safeArea.centerXAnchor),
             actionButton.centerYAnchor.constraint(equalTo: safeArea.centerYAnchor)
         ])
-        view.backgroundColor = .systemBlue
-        title = "Feed"
         actionButton.addTarget(self, action: #selector(buttonPressed(_:)), for: .touchUpInside)
     }
     @objc func buttonPressed (_ sender: UIButton) {
