@@ -46,7 +46,6 @@
 		A186BAAA29BA2B1A0045E4C3 = {
 			isa = PBXGroup;
 			children = (
-				A186FD6B29BF82DB00E3F8E0 /* Profile */,
 				A186BAB529BA2B1A0045E4C3 /* Navigation */,
 				A186BAB429BA2B1A0045E4C3 /* Products */,
 			);
@@ -63,6 +62,7 @@
 		A186BAB529BA2B1A0045E4C3 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
+				A186FD6B29BF82DB00E3F8E0 /* Profile */,
 				A186BAB829BA2B1A0045E4C3 /* SceneDelegate.swift */,
 				A186BACC29BA4CDE0045E4C3 /* FeedViewController.swift */,
 				A186BACE29BA5D460045E4C3 /* PostViewController.swift */,
