@@ -8,16 +8,16 @@
 import UIKit
 
 class ProfileViewController: UIViewController {
-    var profileHeaderView = ProfileHeaderView()
+    private lazy var profileHeaderView = ProfileHeaderView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .lightGray
         title = "Profile"
+        view.addSubview(profileHeaderView)
     }
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
-        view.addSubview(profileHeaderView)
         profileHeaderView.frame = view.bounds
     }
 }

@@ -60,7 +60,7 @@ class ProfileHeaderView: UIView {
 
 //MARK: - Добавим TextField для изменения статуса
     private lazy var statusChangeTextField: UITextField = {
-       let textField = UITextField()
+       let textField = TextFieldWithPadding()
         textField.placeholder = "Set your status"
         textField.layer.cornerRadius = 12
         textField.backgroundColor = .white
@@ -126,7 +126,33 @@ class ProfileHeaderView: UIView {
     
     @objc func statusTextChanged (_ sender: UITextField) -> String {
         var statusText: String
-        statusText = statusChangeTextField.text ?? "nil"
+        if statusChangeTextField.text == "" {
+            statusText = "All whant to know your status..."
+            profileStatus.textColor = .red
+        } else {
+            statusText = statusChangeTextField.text ?? "Nothing there..."
+            profileStatus.textColor = .gray
+        }
         return statusText
+    }
+    
+//MARK: - Подкласс для отсупов в TextField
+    class TextFieldWithPadding: UITextField {
+        var textPadding = UIEdgeInsets (
+            top: 8,
+            left: 8,
+            bottom: 8,
+            right: 8
+        )
+        
+        override func textRect(forBounds bounds: CGRect) -> CGRect {
+            let rect = super.textRect(forBounds: bounds)
+            return rect.inset(by: textPadding)
+        }
+        
+        override func editingRect(forBounds bounds: CGRect) -> CGRect {
+            let rect = super.editingRect(forBounds: bounds)
+            return rect.inset(by: textPadding)
+        }
     }
 }
