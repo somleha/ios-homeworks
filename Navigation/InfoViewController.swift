@@ -14,7 +14,6 @@ class InfoViewController: UIViewController {
         alertButton.translatesAutoresizingMaskIntoConstraints = false
         alertButton.setTitle("Some alert", for: .normal)
         alertButton.setTitleColor(.black, for: .normal)
-        alertButton.addTarget(self, action: #selector(alertButtonPressed(_:)), for: .touchUpInside)
         return alertButton
     }()
     
@@ -28,6 +27,7 @@ class InfoViewController: UIViewController {
             alertButton.centerXAnchor.constraint(equalTo: safeArea.centerXAnchor),
             alertButton.centerYAnchor.constraint(equalTo: safeArea.centerYAnchor)
         ])
+        alertButton.addTarget(self, action: #selector(alertButtonPressed(_:)), for: .touchUpInside)
     }
     
     @objc func alertButtonPressed (_ sender: UIButton) {
