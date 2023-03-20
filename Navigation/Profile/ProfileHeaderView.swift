@@ -83,15 +83,18 @@ class ProfileHeaderView: UIView {
     }
     
     private func setupView() {
+        addSubViews()
+        setupConstraints()
+    }
+    
+//MARK: - Методы для элементов и их расположения
+    private func addSubViews () {
         addSubview(profilePhoto)
         addSubview(profileName)
         addSubview(setStatusButton)
         addSubview(profileStatus)
         addSubview(statusChangeTextField)
-        setupConstraints()
     }
-    
-//MARK: - Разместим в нужном месте все
     private func setupConstraints() {
         NSLayoutConstraint.activate([
             profilePhoto.widthAnchor.constraint(equalToConstant: 120),
@@ -107,6 +110,7 @@ class ProfileHeaderView: UIView {
             setStatusButton.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),
             setStatusButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16),
             setStatusButton.heightAnchor.constraint(equalToConstant: 50),
+            setStatusButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16),
             
             profileStatus.topAnchor.constraint(equalTo: profileName.bottomAnchor, constant: 52),
             profileStatus.leadingAnchor.constraint(equalTo: profilePhoto.trailingAnchor, constant: 16),
@@ -164,4 +168,3 @@ class ProfileHeaderView: UIView {
         }
     }
 }
-

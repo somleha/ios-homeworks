@@ -22,10 +22,14 @@ class ProfileViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .lightGray
         title = "Profile"
+        addSubViews()
+        setupConstraints()
+    }
+    
+    private func addSubViews () {
         view.addSubview(profileHeaderView)
         view.addSubview(changeTitleButton)
         profileHeaderView.translatesAutoresizingMaskIntoConstraints = false
-        setupConstraints()
     }
     
     private func setupConstraints() {
@@ -34,7 +38,6 @@ class ProfileViewController: UIViewController {
             profileHeaderView.topAnchor.constraint(equalTo: safeArea.topAnchor),
             profileHeaderView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
             profileHeaderView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
-            profileHeaderView.heightAnchor.constraint(equalToConstant: 220),
             
             changeTitleButton.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
             changeTitleButton.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
