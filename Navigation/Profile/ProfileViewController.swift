@@ -12,7 +12,7 @@ class ProfileViewController: UIViewController {
     private lazy var changeTitleButton: UIButton = {
        let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Like this profile", for: .normal)
+        button.setTitle("Change title", for: .normal)
         button.backgroundColor = .systemBlue
         button.tintColor = .white
         return button
