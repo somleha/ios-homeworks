@@ -9,39 +9,15 @@ import UIKit
 
 class ProfileViewController: UIViewController {
     private lazy var profileHeaderView = ProfileHeaderView()
-    private lazy var changeTitleButton: UIButton = {
-       let button = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Like this profile", for: .normal)
-        button.backgroundColor = .systemBlue
-        button.tintColor = .white
-        return button
-    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .lightGray
         title = "Profile"
-        addSubViews()
-        setupConstraints()
-    }
-    
-    private func addSubViews () {
         view.addSubview(profileHeaderView)
-        view.addSubview(changeTitleButton)
-        profileHeaderView.translatesAutoresizingMaskIntoConstraints = false
     }
-    
-    private func setupConstraints() {
-        let safeArea = view.safeAreaLayoutGuide
-        NSLayoutConstraint.activate([
-            profileHeaderView.topAnchor.constraint(equalTo: safeArea.topAnchor),
-            profileHeaderView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
-            profileHeaderView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
-            
-            changeTitleButton.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
-            changeTitleButton.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
-            changeTitleButton.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor)
-        ])
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        profileHeaderView.frame = view.bounds
     }
 }

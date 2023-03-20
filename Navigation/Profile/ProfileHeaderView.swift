@@ -42,7 +42,6 @@ class ProfileHeaderView: UIView {
         button.layer.shadowRadius = 4
         button.layer.shadowColor = UIColor.black.cgColor
         button.layer.shadowOpacity = 0.7
-        button.isEnabled = false
         
 //MARK: - Добавим действие по кнопке
         button.addTarget(self, action: #selector(buttonStatusPressed), for: .touchUpInside)
@@ -52,7 +51,7 @@ class ProfileHeaderView: UIView {
 //MARK: - Добавим статус профиля
     private lazy var profileStatus: UILabel = {
        let label = UILabel()
-        label.text = "Set status"
+        label.text = "Waiting for something..."
         label.font = UIFont(name: "Helvetica-regular", size: 14)
         label.textColor = .gray
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -83,18 +82,15 @@ class ProfileHeaderView: UIView {
     }
     
     private func setupView() {
-        addSubViews()
-        setupConstraints()
-    }
-    
-//MARK: - Методы для элементов и их расположения
-    private func addSubViews () {
         addSubview(profilePhoto)
         addSubview(profileName)
         addSubview(setStatusButton)
         addSubview(profileStatus)
         addSubview(statusChangeTextField)
+        setupConstraints()
     }
+    
+//MARK: - Разместим в нужном месте все
     private func setupConstraints() {
         NSLayoutConstraint.activate([
             profilePhoto.widthAnchor.constraint(equalToConstant: 120),
@@ -110,7 +106,6 @@ class ProfileHeaderView: UIView {
             setStatusButton.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),
             setStatusButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16),
             setStatusButton.heightAnchor.constraint(equalToConstant: 50),
-            setStatusButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16),
             
             profileStatus.topAnchor.constraint(equalTo: profileName.bottomAnchor, constant: 52),
             profileStatus.leadingAnchor.constraint(equalTo: profilePhoto.trailingAnchor, constant: 16),
@@ -123,13 +118,8 @@ class ProfileHeaderView: UIView {
         ])
     }
     
-//MARK: - Методы для обработки действий
     @objc func buttonStatusPressed (_ sender: UIButton) {
         profileStatus.text = statusTextChanged(statusChangeTextField)
-        if profileStatus.text != "" {
-            setStatusButton.isEnabled = true
-        }
-        setStatusButton.isEnabled = false
         print(profileStatus.text ?? "Ничего тут нет")
         statusChangeTextField.text = nil
     }
@@ -137,13 +127,11 @@ class ProfileHeaderView: UIView {
     @objc func statusTextChanged (_ sender: UITextField) -> String {
         var statusText: String
         if statusChangeTextField.text == "" {
-            statusText = "Set status"
-            setStatusButton.isEnabled = false
+            statusText = "All whant to know your status..."
+            profileStatus.textColor = .red
         } else {
             statusText = statusChangeTextField.text ?? "Nothing there..."
             profileStatus.textColor = .gray
-            statusChangeTextField.textColor = .black
-            setStatusButton.isEnabled = true
         }
         return statusText
     }
