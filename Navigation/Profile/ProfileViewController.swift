@@ -9,6 +9,14 @@ import UIKit
 
 class ProfileViewController: UIViewController {
     private lazy var profileHeaderView = ProfileHeaderView()
+    private lazy var changeTitleButton: UIButton = {
+       let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitle("Change title", for: .normal)
+        button.backgroundColor = .systemBlue
+        button.tintColor = .white
+        return button
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
