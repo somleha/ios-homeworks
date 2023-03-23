@@ -43,8 +43,6 @@ class ProfileHeaderView: UIView {
         button.layer.shadowColor = UIColor.black.cgColor
         button.layer.shadowOpacity = 0.7
         button.isEnabled = false
-        
-//MARK: - Добавим действие по кнопке
         button.addTarget(self, action: #selector(buttonStatusPressed), for: .touchUpInside)
         return button
     }()
@@ -76,15 +74,12 @@ class ProfileHeaderView: UIView {
 //MARK: - Разместим все на UIView
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setupView()
+        addSubViews()
+        setupConstraints()
+        backgroundColor = .systemGray6
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    private func setupView() {
-        addSubViews()
-        setupConstraints()
     }
     
 //MARK: - Методы для элементов и их расположения
