@@ -217,15 +217,16 @@ class LogInViewController: UIViewController {
 //MARK: - @objc методы
     @objc func willShowKeyboard(_ notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-            loginScrollView.contentInset.bottom = keyboardSize.height + 55
+            loginScrollView.contentInset.bottom = keyboardSize.height + 55 
         }
     }
     @objc func willHideKeyboard(_ notification: NSNotification) {
         loginScrollView.contentInset.bottom = 0.0
     }
     @objc func loginFieldsChanged (_ sender: UITextField) {
-        if (loginTextField.text == "") && (passwordTextField.text == "") {
+        if (loginTextField.text == "") || (passwordTextField.text == "") {
             logInButton.isEnabled = false
+            logInButton.alpha = 0.8
         } else {
             logInButton.isEnabled = true
             logInButton.alpha = 1
