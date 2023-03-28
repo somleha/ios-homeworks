@@ -9,19 +9,17 @@ import UIKit
 
 class ProfileViewController: UIViewController {
 //MARK: - Data
-    fileprivate let data = PostForApp.make()
+    fileprivate lazy var data = PostForApp.make()
     
 //MARK: - Создадим таблицу
     private lazy var profileTableView: UITableView = {
-        let tableView = UITableView.init(
-            frame: .zero,
-            style: .plain
-        )
+        let tableView = UITableView.init(frame: .zero, style: .grouped)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
     private enum CellReuseID: String {
         case base = "PostTableViewCell"
+        case photos = "PhotosTableViewCell"
     }
     
     override func viewDidLoad() {
@@ -31,7 +29,10 @@ class ProfileViewController: UIViewController {
         setupConstraints()
         tuneTableView()
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: true)
+    }
 //MARK: - Методы
     private func setupView() {
         view.backgroundColor = .systemGray6
@@ -56,29 +57,51 @@ class ProfileViewController: UIViewController {
         profileTableView.setAndLayout(headerView: headerView)
         profileTableView.tableFooterView = UIView()
         
-        profileTableView.register(
-            PostTableViewCell.self,
-            forCellReuseIdentifier: CellReuseID.base.rawValue
-        )
+        profileTableView.register(PostTableViewCell.self, forCellReuseIdentifier: CellReuseID.base.rawValue)
+        profileTableView.register(PhotosTableViewCell.self, forCellReuseIdentifier: CellReuseID.photos.rawValue)
+        
         profileTableView.dataSource = self
         profileTableView.delegate = self
     }
+    private func removeKeyboardObservers() {
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.removeObserver(self)
+    }
 }
 
+//MARK: - Extensions
 extension ProfileViewController: UITableViewDelegate {}
 
 extension ProfileViewController: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        2
+    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        data.count
+        if section == 0 {
+            return 1
+        } else {
+            return data.count
+        }
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = profileTableView.dequeueReusableCell(
-            withIdentifier: CellReuseID.base.rawValue,
-            for: indexPath) as? PostTableViewCell
+        if indexPath.section == 0 {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: CellReuseID.photos.rawValue, for: indexPath) as? PhotosTableViewCell
+            else {
+                fatalError("couldn't dequeReusableCell")
+            }
+            return cell
+        }
+        guard let cell = profileTableView.dequeueReusableCell(withIdentifier: CellReuseID.base.rawValue,for: indexPath) as? PostTableViewCell
         else {
             fatalError("couldn't dequeReusableCell")
         }
         cell.update(data[indexPath.row])
         return cell
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedRow = indexPath.section
+        if selectedRow == 0 {
+            navigationController?.pushViewController(PhotosViewController(), animated: true)
+        }
     }
 }
