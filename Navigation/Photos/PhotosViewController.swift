@@ -32,7 +32,7 @@ class PhotosViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(false, animated: true)
-        title = "Photo Gallety"
+        title = "Photo Gallery"
         navigationController?.navigationBar.tintColor = UIColor(named: "VKColor")
     }
     

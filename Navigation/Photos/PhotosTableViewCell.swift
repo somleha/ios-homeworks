@@ -9,6 +9,7 @@ import UIKit
 
 class PhotosTableViewCell: UITableViewCell {
     fileprivate lazy var photosData: [PhotosForApp] = PhotosForApp.make()
+    var onAction: (() -> Void)?
 //MARK: - Subviews
     private lazy var photosTitleLabel: UILabel = {
        let label = UILabel()
@@ -34,6 +35,7 @@ class PhotosTableViewCell: UITableViewCell {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(UIImage(systemName: "arrow.right", withConfiguration: configuration), for: .normal)
         button.tintColor = .black
+        button.addTarget(self, action: #selector(didTapButton(_:)), for: .touchUpInside)
         return button
     }()
     private enum CellIdentifier: String {
@@ -78,6 +80,9 @@ class PhotosTableViewCell: UITableViewCell {
             photosCollectionView.heightAnchor.constraint(equalToConstant: 100),
             photosCollectionView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -12)
         ])
+    }
+    @objc func didTapButton(_ sender: UIButton) {
+        onAction?()
     }
 }
 

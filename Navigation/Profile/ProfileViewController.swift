@@ -89,6 +89,9 @@ extension ProfileViewController: UITableViewDataSource {
             else {
                 fatalError("couldn't dequeReusableCell")
             }
+            cell.onAction = {
+                self.navigationController?.pushViewController(PhotosViewController(), animated: true)
+            }
             return cell
         }
         guard let cell = profileTableView.dequeueReusableCell(withIdentifier: CellReuseID.base.rawValue,for: indexPath) as? PostTableViewCell
