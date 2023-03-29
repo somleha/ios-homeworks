@@ -34,7 +34,7 @@ class ProfileHeaderView: UIView {
     private lazy var setStatusButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Set status", for: .normal)
-        button.backgroundColor = .systemBlue
+        button.backgroundColor = UIColor(named: "VKColor")
         button.tintColor = .white
         button.layer.cornerRadius = 4
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -66,9 +66,11 @@ class ProfileHeaderView: UIView {
         textField.layer.borderWidth = 1
         textField.layer.borderColor = UIColor.black.cgColor
         textField.font = UIFont(name: "Helvetica-regular", size: 15)
+        textField.tintColor = UIColor(named: "VKColor")
         textField.textColor = .black
         textField.addTarget(self, action: #selector(statusTextChanged), for: .editingChanged)
         textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.delegate = self
         return textField
     }()
 //MARK: - Разместим все на UIView
@@ -76,6 +78,7 @@ class ProfileHeaderView: UIView {
         super.init(frame: frame)
         addSubViews()
         setupConstraints()
+        hideKeyboardWhenTappedAround()
         backgroundColor = .systemGray6
     }
     required init?(coder: NSCoder) {
@@ -137,6 +140,9 @@ class ProfileHeaderView: UIView {
         }
         return statusText
     }
+    @objc func dismissKeyboad(){
+        endEditing(true)
+    }
     
 //MARK: - Подкласс для отсупов в TextField
     class TextFieldWithPadding: UITextField {
@@ -156,5 +162,17 @@ class ProfileHeaderView: UIView {
             let rect = super.editingRect(forBounds: bounds)
             return rect.inset(by: textPadding)
         }
+    }
+}
+
+extension ProfileHeaderView: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    func hideKeyboardWhenTappedAround() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(ProfileHeaderView.dismissKeyboad))
+        tap.cancelsTouchesInView = false
+        addGestureRecognizer(tap)
     }
 }
