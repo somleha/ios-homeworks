@@ -213,7 +213,7 @@ class LogInViewController: UIViewController {
         notificationCenter.removeObserver(self)
     }
     
-//MARK: - @objc методы
+//MARK: - @objc functions
     @objc func willShowKeyboard(_ notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             loginScrollView.contentInset.bottom = keyboardSize.height + 55 

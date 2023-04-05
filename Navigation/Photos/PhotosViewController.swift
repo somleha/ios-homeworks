@@ -80,7 +80,7 @@ extension PhotosViewController: UICollectionViewDataSource {
 extension PhotosViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let screenWidth = view.frame.width
-        let totalOffsets: CGFloat = 8 * 6
+        let totalOffsets: CGFloat = 8 * 5
         let cellWidth = (screenWidth - totalOffsets)/3
         let size = CGSize(width: cellWidth, height: cellWidth)
         return size
@@ -90,5 +90,12 @@ extension PhotosViewController: UICollectionViewDelegateFlowLayout {
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let photos = photosData[indexPath.row]
+        let vc = PhotoFullViewController(image: UIImage(named: photos.photoName))
+        vc.modalPresentationStyle = .overFullScreen
+        vc.modalTransitionStyle = .crossDissolve
+        self.present(vc, animated: true, completion: nil)
     }
 }

@@ -36,6 +36,7 @@ class ProfileViewController: UIViewController {
 //MARK: - Методы
     private func setupView() {
         view.backgroundColor = .systemGray6
+        view.isUserInteractionEnabled = true
     }
     private func addSubviews() {
         view.addSubview(profileTableView)
@@ -55,6 +56,8 @@ class ProfileViewController: UIViewController {
         
         let headerView = ProfileHeaderView()
         profileTableView.setAndLayout(headerView: headerView)
+        let profilePhotoTap = UITapGestureRecognizer(target: self, action: #selector(didTappedPhoto))
+        headerView.profilePhoto.addGestureRecognizer(profilePhotoTap)
         profileTableView.tableFooterView = UIView()
         
         profileTableView.register(PostTableViewCell.self, forCellReuseIdentifier: CellReuseID.base.rawValue)
@@ -66,6 +69,12 @@ class ProfileViewController: UIViewController {
     private func removeKeyboardObservers() {
         let notificationCenter = NotificationCenter.default
         notificationCenter.removeObserver(self)
+    }
+    @objc func didTappedPhoto() {
+        let vc = PhotoFullViewController(image: ProfileHeaderView().profilePhoto.image)
+        vc.modalPresentationStyle = .overFullScreen
+        vc.modalTransitionStyle = .crossDissolve
+        self.present(vc, animated: true, completion: nil)
     }
 }
 
