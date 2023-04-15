@@ -10,13 +10,14 @@ import UIKit
 
 class ProfileHeaderView: UIView {
 //MARK: - Создадим фото профиля
-    private lazy var profilePhoto: UIImageView = {
+    lazy var profilePhoto: UIImageView = {
         let view = UIImageView(image: UIImage(named: "cat"))
         view.layer.cornerRadius = 60
         view.clipsToBounds = true
         view.layer.borderColor = UIColor.white.cgColor
         view.layer.borderWidth = 3
         view.translatesAutoresizingMaskIntoConstraints = false
+        view.isUserInteractionEnabled = true
         return view
     }()
     
@@ -143,7 +144,6 @@ class ProfileHeaderView: UIView {
     @objc func dismissKeyboad(){
         endEditing(true)
     }
-    
 //MARK: - Подкласс для отсупов в TextField
     class TextFieldWithPadding: UITextField {
         var textPadding = UIEdgeInsets (
@@ -152,12 +152,10 @@ class ProfileHeaderView: UIView {
             bottom: 8,
             right: 8
         )
-        
         override func textRect(forBounds bounds: CGRect) -> CGRect {
             let rect = super.textRect(forBounds: bounds)
             return rect.inset(by: textPadding)
         }
-        
         override func editingRect(forBounds bounds: CGRect) -> CGRect {
             let rect = super.editingRect(forBounds: bounds)
             return rect.inset(by: textPadding)
