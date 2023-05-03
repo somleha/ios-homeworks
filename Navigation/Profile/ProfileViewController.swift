@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import StorageService
 
 class ProfileViewController: UIViewController {
 //MARK: - Data
@@ -35,7 +36,11 @@ class ProfileViewController: UIViewController {
     }
 //MARK: - Методы
     private func setupView() {
+        #if DEBUG
         view.backgroundColor = .systemGray6
+        #else
+        view.backgroundColor = .cyan
+        #endif
         view.isUserInteractionEnabled = true
     }
     private func addSubviews() {
