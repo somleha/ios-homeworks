@@ -10,11 +10,15 @@
 		A1026DAA29DD903A0017D9EE /* PhotoFullViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1026DA929DD903A0017D9EE /* PhotoFullViewController.swift */; };
 		A120E93929CB3BE700A5786B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A120E93829CB3BE700A5786B /* Extensions.swift */; };
 		A120E93D29CB427C00A5786B /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A120E93C29CB427C00A5786B /* PostTableViewCell.swift */; };
-		A1496EBF29CAF76D003FE60C /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1496EBE29CAF76D003FE60C /* Post.swift */; };
 		A14B9AB729D1B8B8002FF37B /* PhotosTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B9AB629D1B8B8002FF37B /* PhotosTableViewCell.swift */; };
 		A14B9AB929D1C470002FF37B /* Photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B9AB829D1C470002FF37B /* Photos.swift */; };
 		A14B9ABB29D1DFDA002FF37B /* PhotosCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B9ABA29D1DFDA002FF37B /* PhotosCollectionViewCell.swift */; };
 		A14B9ABE29D1F258002FF37B /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B9ABD29D1F258002FF37B /* PhotosViewController.swift */; };
+		A16349E12A02D51100ECD96C /* StorageService.docc in Sources */ = {isa = PBXBuildFile; fileRef = A16349E02A02D51100ECD96C /* StorageService.docc */; };
+		A16349EF2A02D51100ECD96C /* StorageService.h in Headers */ = {isa = PBXBuildFile; fileRef = A16349DF2A02D51100ECD96C /* StorageService.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A16349F22A02D51100ECD96C /* StorageService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A16349DD2A02D51100ECD96C /* StorageService.framework */; };
+		A16349F32A02D51100ECD96C /* StorageService.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A16349DD2A02D51100ECD96C /* StorageService.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A16349FB2A02D52700ECD96C /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1496EBE29CAF76D003FE60C /* Post.swift */; };
 		A186BAB729BA2B1A0045E4C3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A186BAB629BA2B1A0045E4C3 /* AppDelegate.swift */; };
 		A186BAB929BA2B1A0045E4C3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A186BAB829BA2B1A0045E4C3 /* SceneDelegate.swift */; };
 		A186BAC029BA2B1B0045E4C3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A186BABF29BA2B1B0045E4C3 /* Assets.xcassets */; };
@@ -27,6 +31,30 @@
 		A1DEC7DF29C8969E004E431E /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DEC7DE29C8969E004E431E /* LogInViewController.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		A16349F02A02D51100ECD96C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A186BAAB29BA2B1A0045E4C3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A16349DC2A02D51100ECD96C;
+			remoteInfo = StorageService;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A16349F42A02D51100ECD96C /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				A16349F32A02D51100ECD96C /* StorageService.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		A1026DA929DD903A0017D9EE /* PhotoFullViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoFullViewController.swift; sourceTree = "<group>"; };
 		A120E93829CB3BE700A5786B /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -36,6 +64,10 @@
 		A14B9AB829D1C470002FF37B /* Photos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photos.swift; sourceTree = "<group>"; };
 		A14B9ABA29D1DFDA002FF37B /* PhotosCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewCell.swift; sourceTree = "<group>"; };
 		A14B9ABD29D1F258002FF37B /* PhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
+		A16349DD2A02D51100ECD96C /* StorageService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = StorageService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A16349DF2A02D51100ECD96C /* StorageService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StorageService.h; sourceTree = "<group>"; };
+		A16349E02A02D51100ECD96C /* StorageService.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = StorageService.docc; sourceTree = "<group>"; };
+		A16349ED2A02D51100ECD96C /* StorageServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageServiceTests.swift; sourceTree = "<group>"; };
 		A186BAB329BA2B1A0045E4C3 /* Navigation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Navigation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A186BAB629BA2B1A0045E4C3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A186BAB829BA2B1A0045E4C3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -51,10 +83,18 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		A16349DA2A02D51100ECD96C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A186BAB029BA2B1A0045E4C3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A16349F22A02D51100ECD96C /* StorageService.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -88,10 +128,29 @@
 			path = Photos;
 			sourceTree = "<group>";
 		};
+		A16349DE2A02D51100ECD96C /* StorageService */ = {
+			isa = PBXGroup;
+			children = (
+				A16349DF2A02D51100ECD96C /* StorageService.h */,
+				A16349E02A02D51100ECD96C /* StorageService.docc */,
+			);
+			path = StorageService;
+			sourceTree = "<group>";
+		};
+		A16349EC2A02D51100ECD96C /* StorageServiceTests */ = {
+			isa = PBXGroup;
+			children = (
+				A16349ED2A02D51100ECD96C /* StorageServiceTests.swift */,
+			);
+			path = StorageServiceTests;
+			sourceTree = "<group>";
+		};
 		A186BAAA29BA2B1A0045E4C3 = {
 			isa = PBXGroup;
 			children = (
 				A186BAB529BA2B1A0045E4C3 /* Navigation */,
+				A16349DE2A02D51100ECD96C /* StorageService */,
+				A16349EC2A02D51100ECD96C /* StorageServiceTests */,
 				A186BAB429BA2B1A0045E4C3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -100,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				A186BAB329BA2B1A0045E4C3 /* Navigation.app */,
+				A16349DD2A02D51100ECD96C /* StorageService.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -137,7 +197,36 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		A16349D82A02D51100ECD96C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A16349EF2A02D51100ECD96C /* StorageService.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
+		A16349DC2A02D51100ECD96C /* StorageService */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A16349F92A02D51100ECD96C /* Build configuration list for PBXNativeTarget "StorageService" */;
+			buildPhases = (
+				A16349D82A02D51100ECD96C /* Headers */,
+				A16349D92A02D51100ECD96C /* Sources */,
+				A16349DA2A02D51100ECD96C /* Frameworks */,
+				A16349DB2A02D51100ECD96C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = StorageService;
+			productName = StorageService;
+			productReference = A16349DD2A02D51100ECD96C /* StorageService.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		A186BAB229BA2B1A0045E4C3 /* Navigation */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A186BAC729BA2B1B0045E4C3 /* Build configuration list for PBXNativeTarget "Navigation" */;
@@ -145,10 +234,12 @@
 				A186BAAF29BA2B1A0045E4C3 /* Sources */,
 				A186BAB029BA2B1A0045E4C3 /* Frameworks */,
 				A186BAB129BA2B1A0045E4C3 /* Resources */,
+				A16349F42A02D51100ECD96C /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				A16349F12A02D51100ECD96C /* PBXTargetDependency */,
 			);
 			name = Navigation;
 			productName = Navigation;
@@ -162,9 +253,12 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1420;
+				LastSwiftUpdateCheck = 1430;
 				LastUpgradeCheck = 1420;
 				TargetAttributes = {
+					A16349DC2A02D51100ECD96C = {
+						CreatedOnToolsVersion = 14.3;
+					};
 					A186BAB229BA2B1A0045E4C3 = {
 						CreatedOnToolsVersion = 14.2;
 					};
@@ -184,11 +278,19 @@
 			projectRoot = "";
 			targets = (
 				A186BAB229BA2B1A0045E4C3 /* Navigation */,
+				A16349DC2A02D51100ECD96C /* StorageService */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		A16349DB2A02D51100ECD96C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A186BAB129BA2B1A0045E4C3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -201,6 +303,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		A16349D92A02D51100ECD96C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A16349E12A02D51100ECD96C /* StorageService.docc in Sources */,
+				A16349FB2A02D52700ECD96C /* Post.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		A186BAAF29BA2B1A0045E4C3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -219,12 +330,19 @@
 				A120E93929CB3BE700A5786B /* Extensions.swift in Sources */,
 				A186FD6F29C0887000E3F8E0 /* ProfileTableHederView.swift in Sources */,
 				A186BAD129BA99E30045E4C3 /* InfoViewController.swift in Sources */,
-				A1496EBF29CAF76D003FE60C /* Post.swift in Sources */,
 				A186BACF29BA5D460045E4C3 /* PostViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A16349F12A02D51100ECD96C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A16349DC2A02D51100ECD96C /* StorageService */;
+			targetProxy = A16349F02A02D51100ECD96C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		A186BAC129BA2B1B0045E4C3 /* LaunchScreen.storyboard */ = {
@@ -238,6 +356,74 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		A16349F52A02D51100ECD96C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = FK3UFNNUXF;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++20";
+				PRODUCT_BUNDLE_IDENTIFIER = "leha-som.StorageService";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		A16349F62A02D51100ECD96C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = FK3UFNNUXF;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++20";
+				PRODUCT_BUNDLE_IDENTIFIER = "leha-som.StorageService";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		A186BAC529BA2B1B0045E4C3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -355,6 +541,7 @@
 		A186BAC829BA2B1B0045E4C3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -367,7 +554,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -384,6 +571,7 @@
 		A186BAC929BA2B1B0045E4C3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -396,7 +584,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -413,6 +601,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		A16349F92A02D51100ECD96C /* Build configuration list for PBXNativeTarget "StorageService" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A16349F52A02D51100ECD96C /* Debug */,
+				A16349F62A02D51100ECD96C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		A186BAAE29BA2B1A0045E4C3 /* Build configuration list for PBXProject "Navigation" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

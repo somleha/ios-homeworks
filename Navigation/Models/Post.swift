@@ -15,14 +15,14 @@ protocol Posts {
     var views: Int {get set}
     
 }
-struct PostForApp: Posts {
-    var author: String
-    var description: String
-    var image: String
-    var likes: Int
-    var views: Int
+public struct PostForApp: Posts {
+    public var author: String
+    public var description: String
+    public var image: String
+    public var likes: Int
+    public var views: Int
     
-    static func make() -> [PostForApp] {
+    public static func make() -> [PostForApp] {
         [
             PostForApp(
                 author: "Darth Vader",
@@ -55,5 +55,3 @@ struct PostForApp: Posts {
         ]
     }
 }
-
-
