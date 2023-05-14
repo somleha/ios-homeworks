@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import SnapKit
 
 class ProfileHeaderView: UIView {
 //MARK: - Создадим фото профиля
@@ -95,31 +96,34 @@ class ProfileHeaderView: UIView {
         addSubview(statusChangeTextField)
     }
     private func setupConstraints() {
-        NSLayoutConstraint.activate([
-            profilePhoto.widthAnchor.constraint(equalToConstant: 120),
-            profilePhoto.heightAnchor.constraint(equalToConstant: 120),
-            profilePhoto.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),
-            profilePhoto.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16),
-            
-            profileName.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 27),
-            profileName.leadingAnchor.constraint(equalTo: profilePhoto.trailingAnchor, constant: 16),
-            profileName.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16),
-            
-            setStatusButton.topAnchor.constraint(equalTo: statusChangeTextField.bottomAnchor, constant: 16),
-            setStatusButton.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 16),
-            setStatusButton.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16),
-            setStatusButton.heightAnchor.constraint(equalToConstant: 50),
-            setStatusButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -16),
-            
-            profileStatus.topAnchor.constraint(equalTo: profileName.bottomAnchor, constant: 52),
-            profileStatus.leadingAnchor.constraint(equalTo: profilePhoto.trailingAnchor, constant: 16),
-            profileStatus.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16),
-            
-            statusChangeTextField.topAnchor.constraint(equalTo: profileStatus.bottomAnchor, constant: 2),
-            statusChangeTextField.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -16),
-            statusChangeTextField.heightAnchor.constraint(equalToConstant: 40),
-            statusChangeTextField.leadingAnchor.constraint(equalTo: profilePhoto.trailingAnchor, constant: 16)
-        ])
+        profilePhoto.snp.makeConstraints { maker in
+            maker.size.equalTo(120)
+            maker.leading.equalToSuperview().offset(16)
+            maker.top.equalToSuperview().offset(16)
+        }
+        profileName.snp.makeConstraints { maker in
+            maker.top.equalToSuperview().offset(27)
+            maker.leading.equalTo(profilePhoto.snp.trailing).offset(16)
+            maker.trailing.equalToSuperview().offset(-16)
+        }
+        setStatusButton.snp.makeConstraints { make in
+            make.top.equalTo(statusChangeTextField.snp.bottom).offset(16)
+            make.leading.equalToSuperview().offset(16)
+            make.trailing.equalToSuperview().offset(-16)
+            make.height.equalTo(50)
+            make.bottom.equalTo(snp.bottom).offset(-16)
+        }
+        profileStatus.snp.makeConstraints { maker in
+            maker.top.equalTo(profileName.snp.bottom).offset(52)
+            maker.leading.equalTo(profilePhoto.snp.trailing).offset(16)
+            maker.trailing.equalToSuperview().offset(-16)
+        }
+        statusChangeTextField.snp.makeConstraints { maker in
+            maker.top.equalTo(profileStatus.snp.bottom).offset(2)
+            maker.trailing.equalToSuperview().offset(-16)
+            maker.height.equalTo(40)
+            maker.leading.equalTo(profilePhoto.snp.trailing).offset(16)
+        }
     }
     
 //MARK: - Методы для обработки действий
