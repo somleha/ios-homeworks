@@ -7,6 +7,7 @@
 
 import UIKit
 import StorageService
+import iOSIntPackage
 
 class PostTableViewCell: UITableViewCell {
 //MARK: - Создадим элементы секции таблицы
@@ -100,10 +101,14 @@ class PostTableViewCell: UITableViewCell {
             viewsLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -16)
         ])
     }
-    
     func update(_ model: PostForApp) {
         titleLabel.text = model.author
         imageFeed.image = UIImage(named: model.image)
+        ImageProcessor().processImage(sourceImage: UIImage(named: model.image)!, filter: .chrome) { filteredImage in
+            DispatchQueue.main.async {
+                self.imageFeed.image = filteredImage
+            }
+        }
         descriptionLabel.text = model.description
         likesLabel.text = "Likes:" + " " + String(model.likes)
         viewsLabel.text = "Views:" + " " + String(model.views)
