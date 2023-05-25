@@ -11,7 +11,7 @@ import StorageService
 class ProfileViewController: UIViewController {
 //MARK: - Data
     fileprivate lazy var data = PostForApp.make()
-    
+    var currentUser: User?
 //MARK: - Создадим таблицу
     private lazy var profileTableView: UITableView = {
         let tableView = UITableView.init(frame: .zero, style: .grouped)
@@ -60,6 +60,11 @@ class ProfileViewController: UIViewController {
         profileTableView.estimatedRowHeight = 200
         
         let headerView = ProfileHeaderView()
+        if let currentUser = currentUser {
+            headerView.profileName.text = currentUser.fullName
+            headerView.profilePhoto.image = currentUser.profilePhoto
+            headerView.profileStatus.text = currentUser.status
+        }
         profileTableView.setAndLayout(headerView: headerView)
         let profilePhotoTap = UITapGestureRecognizer(target: self, action: #selector(didTappedPhoto))
         headerView.profilePhoto.addGestureRecognizer(profilePhotoTap)

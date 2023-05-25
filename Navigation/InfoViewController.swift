@@ -22,7 +22,6 @@ class InfoViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemPink
         view.addSubview(alertButton)
-        
         let safeArea = view.safeAreaLayoutGuide
         NSLayoutConstraint.activate([
             alertButton.centerXAnchor.constraint(equalTo: safeArea.centerXAnchor),

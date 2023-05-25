@@ -16,7 +16,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.window = window
         
         //MARK: - Создадим объекты NavigationController и PostViewController
-        let profileNavigationController = UINavigationController(rootViewController: LogInViewController())
+        #if DEBUG
+        let savedUser = User(login: "login", fullName: "alex", status: "Active!", profilePhoto: UIImage(named: "cat")!)
+        let service: UserService = TestUserService(user: savedUser)
+        #else
+        let savedUser = User(login: "test", fullName: "test", status: "test!!!", profilePhoto: UIImage(named: "team13")!)
+        let service: UserService = CurrentUserService(user: savedUser)
+        #endif
+        let profileNavigationController = UINavigationController(rootViewController: LogInViewController(userService: service))
         let feedNavigationController = UINavigationController(rootViewController: FeedViewController())
         
         //MARK: - Cделаем TabBar и настроим цвета
