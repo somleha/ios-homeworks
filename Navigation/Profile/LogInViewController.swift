@@ -8,6 +8,14 @@
 import UIKit
 
 class LogInViewController: UIViewController {
+    let userService: UserService
+    init(userService: UserService) {
+        self.userService = userService
+        super.init(nibName: nil, bundle: nil)
+    }
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 //MARK: - ScrollView
     private lazy var loginScrollView: UIScrollView = {
        let scrollView = UIScrollView()
@@ -232,7 +240,17 @@ class LogInViewController: UIViewController {
         }
     }
     @objc func buttonPressed(_ sender: UIButton) {
-        navigationController?.pushViewController(ProfileViewController(), animated: true)
+        guard let login = loginTextField.text else {return}
+        if let user = userService.getUser(login: login) {
+            let profileVC = ProfileViewController()
+            profileVC.currentUser = user
+            navigationController?.pushViewController(profileVC, animated: true)
+        } else {
+            let alert = UIAlertController(title: "Ошибка", message: "Введен неверный логин", preferredStyle: .alert)
+            let cancelButton = UIAlertAction(title: "OK", style: .cancel)
+            alert.addAction(cancelButton)
+            present(alert, animated: true)
+        }
     }
     @objc func dismissKeyboad(){
         view.endEditing(true)

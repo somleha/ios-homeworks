@@ -22,7 +22,7 @@ class ProfileHeaderView: UIView {
     }()
     
 //MARK: - Добавим имя профиля
-    private lazy var profileName: UILabel = {
+    lazy var profileName: UILabel = {
        let label = UILabel()
         label.text = "Hipster Cat"
         label.font = UIFont(name: "Helvetica-bold", size: 18)
@@ -49,7 +49,7 @@ class ProfileHeaderView: UIView {
     }()
     
 //MARK: - Добавим статус профиля
-    private lazy var profileStatus: UILabel = {
+    lazy var profileStatus: UILabel = {
        let label = UILabel()
         label.text = "Set status"
         label.font = UIFont(name: "Helvetica-regular", size: 14)
@@ -59,7 +59,7 @@ class ProfileHeaderView: UIView {
     }()
 
 //MARK: - Добавим TextField для изменения статуса
-    private lazy var statusChangeTextField: UITextField = {
+    lazy var statusChangeTextField: UITextField = {
        let textField = TextFieldWithPadding()
         textField.placeholder = "Set your status"
         textField.layer.cornerRadius = 12

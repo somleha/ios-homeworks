@@ -28,6 +28,7 @@
 		A186BACF29BA5D460045E4C3 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A186BACE29BA5D460045E4C3 /* PostViewController.swift */; };
 		A186BAD129BA99E30045E4C3 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A186BAD029BA99E30045E4C3 /* InfoViewController.swift */; };
 		A186FD6F29C0887000E3F8E0 /* ProfileTableHederView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A186FD6E29C0887000E3F8E0 /* ProfileTableHederView.swift */; };
+		A1CD5DCD2A1BF4CA00550FD9 /* UserAutorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1CD5DCC2A1BF4CA00550FD9 /* UserAutorization.swift */; };
 		A1DEC7DF29C8969E004E431E /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1DEC7DE29C8969E004E431E /* LogInViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -79,6 +80,7 @@
 		A186BACE29BA5D460045E4C3 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		A186BAD029BA99E30045E4C3 /* InfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		A186FD6E29C0887000E3F8E0 /* ProfileTableHederView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableHederView.swift; sourceTree = "<group>"; };
+		A1CD5DCC2A1BF4CA00550FD9 /* UserAutorization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAutorization.swift; sourceTree = "<group>"; };
 		A1DEC7DE29C8969E004E431E /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -114,6 +116,7 @@
 			children = (
 				A1496EBE29CAF76D003FE60C /* Post.swift */,
 				A14B9AB829D1C470002FF37B /* Photos.swift */,
+				A1CD5DCC2A1BF4CA00550FD9 /* UserAutorization.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -325,6 +328,7 @@
 				A186BACD29BA4CDE0045E4C3 /* FeedViewController.swift in Sources */,
 				A186BAB929BA2B1A0045E4C3 /* SceneDelegate.swift in Sources */,
 				A1DEC7DF29C8969E004E431E /* LogInViewController.swift in Sources */,
+				A1CD5DCD2A1BF4CA00550FD9 /* UserAutorization.swift in Sources */,
 				A14B9AB929D1C470002FF37B /* Photos.swift in Sources */,
 				A14B9ABE29D1F258002FF37B /* PhotosViewController.swift in Sources */,
 				A120E93929CB3BE700A5786B /* Extensions.swift in Sources */,
