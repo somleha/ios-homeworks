@@ -8,6 +8,7 @@
 import UIKit
 
 class LogInViewController: UIViewController {
+    weak var loginDelegate: LoginViewControllerDelegate?
     let userService: UserService
     init(userService: UserService) {
         self.userService = userService
@@ -241,12 +242,15 @@ class LogInViewController: UIViewController {
     }
     @objc func buttonPressed(_ sender: UIButton) {
         guard let login = loginTextField.text else {return}
-        if let user = userService.getUser(login: login) {
+        guard let password = passwordTextField.text else {return}
+        let validateCredential = loginDelegate?.check(login: login, password: password)
+        if validateCredential == true {
+            let user = userService.getUser()
             let profileVC = ProfileViewController()
             profileVC.currentUser = user
             navigationController?.pushViewController(profileVC, animated: true)
         } else {
-            let alert = UIAlertController(title: "Ошибка", message: "Введен неверный логин", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Ошибка", message: "Введен неверный логин или пароль", preferredStyle: .alert)
             let cancelButton = UIAlertAction(title: "OK", style: .cancel)
             alert.addAction(cancelButton)
             present(alert, animated: true)

@@ -14,6 +14,7 @@
 		A14B9AB929D1C470002FF37B /* Photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B9AB829D1C470002FF37B /* Photos.swift */; };
 		A14B9ABB29D1DFDA002FF37B /* PhotosCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B9ABA29D1DFDA002FF37B /* PhotosCollectionViewCell.swift */; };
 		A14B9ABE29D1F258002FF37B /* PhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A14B9ABD29D1F258002FF37B /* PhotosViewController.swift */; };
+		A15B2A5C2A25233100A1FB8F /* Checker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A15B2A5B2A25233100A1FB8F /* Checker.swift */; };
 		A16349E12A02D51100ECD96C /* StorageService.docc in Sources */ = {isa = PBXBuildFile; fileRef = A16349E02A02D51100ECD96C /* StorageService.docc */; };
 		A16349EF2A02D51100ECD96C /* StorageService.h in Headers */ = {isa = PBXBuildFile; fileRef = A16349DF2A02D51100ECD96C /* StorageService.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A16349F22A02D51100ECD96C /* StorageService.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A16349DD2A02D51100ECD96C /* StorageService.framework */; };
@@ -65,6 +66,7 @@
 		A14B9AB829D1C470002FF37B /* Photos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photos.swift; sourceTree = "<group>"; };
 		A14B9ABA29D1DFDA002FF37B /* PhotosCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewCell.swift; sourceTree = "<group>"; };
 		A14B9ABD29D1F258002FF37B /* PhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosViewController.swift; sourceTree = "<group>"; };
+		A15B2A5B2A25233100A1FB8F /* Checker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checker.swift; sourceTree = "<group>"; };
 		A16349DD2A02D51100ECD96C /* StorageService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = StorageService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A16349DF2A02D51100ECD96C /* StorageService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StorageService.h; sourceTree = "<group>"; };
 		A16349E02A02D51100ECD96C /* StorageService.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = StorageService.docc; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 				A1496EBE29CAF76D003FE60C /* Post.swift */,
 				A14B9AB829D1C470002FF37B /* Photos.swift */,
 				A1CD5DCC2A1BF4CA00550FD9 /* UserAutorization.swift */,
+				A15B2A5B2A25233100A1FB8F /* Checker.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -327,6 +330,7 @@
 				A186BACB29BA4C9B0045E4C3 /* ProfileViewController.swift in Sources */,
 				A186BACD29BA4CDE0045E4C3 /* FeedViewController.swift in Sources */,
 				A186BAB929BA2B1A0045E4C3 /* SceneDelegate.swift in Sources */,
+				A15B2A5C2A25233100A1FB8F /* Checker.swift in Sources */,
 				A1DEC7DF29C8969E004E431E /* LogInViewController.swift in Sources */,
 				A1CD5DCD2A1BF4CA00550FD9 /* UserAutorization.swift in Sources */,
 				A14B9AB929D1C470002FF37B /* Photos.swift in Sources */,
