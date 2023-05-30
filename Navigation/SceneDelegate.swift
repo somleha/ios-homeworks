@@ -23,7 +23,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let savedUser = User(login: "login", fullName: "pass", status: "test!!!", profilePhoto: UIImage(named: "team13")!)
         let service: UserService = CurrentUserService(user: savedUser)
         #endif
-        let loginInspector = LoginInspector()
+        let loginInspector = MyLoginFactory().makeLoginInspector()
         let loginVC = LogInViewController(userService: service)
         loginVC.loginDelegate = loginInspector
         let profileNavigationController = UINavigationController(rootViewController: loginVC)
