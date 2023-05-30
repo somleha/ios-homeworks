@@ -8,7 +8,7 @@
 import UIKit
 
 class LogInViewController: UIViewController {
-    weak var loginDelegate: LoginViewControllerDelegate?
+    var loginDelegate: LoginViewControllerDelegate?
     let userService: UserService
     init(userService: UserService) {
         self.userService = userService

@@ -18,7 +18,6 @@ final class Checker {
     private var password: String = "pass"
     
     func check(login: String, password: String) -> Bool {
-        print("Что-то")
         if login == self.login && password == self.password {
             return true
         } else {
@@ -29,7 +28,6 @@ final class Checker {
 
 final class LoginInspector: LoginViewControllerDelegate {
     func check(login: String, password: String) -> Bool {
-        print("Что-то")
         return Checker.shared.check(login: login, password: password)
     }
 }
