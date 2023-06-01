@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 protocol UserService {
-    func getUser(login: String) -> User?
+    func getUser() -> User
 }
 
 final class User {
@@ -28,12 +28,8 @@ final class User {
 public class CurrentUserService: UserService {
     private let user: User
     let savedUser = User(login: "login", fullName: "alex", status: "Active!", profilePhoto: UIImage(named: "cat")!)
-    func getUser(login: String) -> User? {
-        if login == savedUser.login {
-            return savedUser
-        } else {
-            return nil
-        }
+    func getUser() -> User {
+        return savedUser
     }
     init(user: User) {
         self.user = user
@@ -43,12 +39,8 @@ public class CurrentUserService: UserService {
 public class TestUserService: UserService {
     private let user: User
     let savedUser = User(login: "test", fullName: "test", status: "test!!!", profilePhoto: UIImage(named: "team13")!)
-    func getUser(login: String) -> User? {
-        if login == savedUser.login {
-            return savedUser
-        } else {
-            return nil
-        }
+    func getUser() -> User {
+        return savedUser
     }
     init(user: User) {
         self.user = user
