@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+import UIKit
 protocol Photos {
     var photoName: String {get set}
     static func make() -> [PhotosForApp]
@@ -17,7 +17,7 @@ struct PhotosForApp: Photos {
     
     static func make() -> [PhotosForApp] {
         [
-            PhotosForApp(photoName: "team"),
+            PhotosForApp(photoName: "team0"),
             PhotosForApp(photoName: "team1"),
             PhotosForApp(photoName: "team2"),
             PhotosForApp(photoName: "team3"),
@@ -39,4 +39,9 @@ struct PhotosForApp: Photos {
             PhotosForApp(photoName: "team19")
         ]
     }
+}
+
+var newPhotoCollection: [UIImage] = []
+func makeCollectionPhoto() {
+    newPhotoCollection = (0...19).compactMap{UIImage(named: "team\($0)") }
 }

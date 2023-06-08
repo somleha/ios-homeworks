@@ -45,11 +45,6 @@ class PhotoFullViewController: UIViewController {
     private func setupConstraints(){
         let safeArea = view.safeAreaLayoutGuide
         NSLayoutConstraint.activate([
-//            blackview.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
-//            blackview.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
-//            blackview.topAnchor.constraint(equalTo: safeArea.topAnchor),
-//            blackview.bottomAnchor.constraint(equalTo: safeArea.bottomAnchor),
-            
             photoFullView.trailingAnchor.constraint(equalTo: safeArea.trailingAnchor),
             photoFullView.leadingAnchor.constraint(equalTo: safeArea.leadingAnchor),
             photoFullView.centerYAnchor.constraint(equalTo: safeArea.centerYAnchor),

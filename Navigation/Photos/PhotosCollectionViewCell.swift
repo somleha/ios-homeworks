@@ -39,7 +39,7 @@ class PhotosCollectionViewCell: UICollectionViewCell {
         ])
     }
 //MARK: - Public functions
-    func setupImages(with image: PhotosForApp){
-        photoImage.image = UIImage(named: image.photoName)
+    func setupImages(with image: UIImage){
+        photoImage.image = image
     }
 }
