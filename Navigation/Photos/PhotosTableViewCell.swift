@@ -96,7 +96,7 @@ extension PhotosTableViewCell: UICollectionViewDataSource {
         let photos = photosData[indexPath.row]
         cell.layer.cornerRadius = 6
         cell.clipsToBounds = true
-        cell.setupImages(with: photos)
+        cell.setupImages(with: UIImage(named: photos.photoName)!)
         return cell
     }
 }
