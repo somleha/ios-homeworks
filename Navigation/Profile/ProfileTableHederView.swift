@@ -32,22 +32,18 @@ class ProfileHeaderView: UIView {
     }()
     
 //MARK: - Добавим кнопку
-    private lazy var setStatusButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle("Set status", for: .normal)
-        button.backgroundColor = UIColor(named: "VKColor")
-        button.tintColor = .white
-        button.layer.cornerRadius = 4
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.layer.shadowOffset = CGSize(width: 4, height: 4)
-        button.layer.shadowRadius = 4
-        button.layer.shadowColor = UIColor.black.cgColor
-        button.layer.shadowOpacity = 0.7
-        button.isEnabled = false
-        button.addTarget(self, action: #selector(buttonStatusPressed), for: .touchUpInside)
-        return button
-    }()
-    
+    private lazy var setStatusButton: CustomButton = {
+            let button = CustomButton(title: "Set title", titleColor: .white, isEnabled: false) { [unowned self] in
+                profileStatus.text = statusTextChanged(statusChangeTextField)
+                if profileStatus.text != "" {
+                    setStatusButton.isEnabled = true
+                }
+                setStatusButton.isEnabled = false
+                print(profileStatus.text ?? "Ничего тут нет")
+                statusChangeTextField.text = nil
+            }
+            return button
+        }()
 //MARK: - Добавим статус профиля
     lazy var profileStatus: UILabel = {
        let label = UILabel()
@@ -123,15 +119,6 @@ class ProfileHeaderView: UIView {
     }
     
 //MARK: - Методы для обработки действий
-    @objc func buttonStatusPressed (_ sender: UIButton) {
-        profileStatus.text = statusTextChanged(statusChangeTextField)
-        if profileStatus.text != "" {
-            setStatusButton.isEnabled = true
-        }
-        setStatusButton.isEnabled = false
-        print(profileStatus.text ?? "Ничего тут нет")
-        statusChangeTextField.text = nil
-    }
     
     @objc func statusTextChanged (_ sender: UITextField) -> String {
         var statusText: String
