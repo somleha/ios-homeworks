@@ -10,9 +10,6 @@ import UIKit
 class CustomButton: UIButton {
     private var callback: (() -> Void)
     
-    @objc private func buttonTapped() {
-        callback()
-    }
     override var isHighlighted: Bool {
         didSet {
             if (isHighlighted) {
@@ -30,6 +27,10 @@ class CustomButton: UIButton {
                 alpha = 1
             }
         }
+    }
+    
+    @objc private func buttonTapped() {
+        callback()
     }
     
     init (title: String, titleColor: UIColor, isEnabled: Bool, callback: @escaping (() -> Void)) {
