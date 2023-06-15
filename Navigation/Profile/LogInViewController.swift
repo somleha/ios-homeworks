@@ -17,9 +17,9 @@ class LogInViewController: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-//MARK: - ScrollView
+    //MARK: - ScrollView
     private lazy var loginScrollView: UIScrollView = {
-       let scrollView = UIScrollView()
+        let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.showsVerticalScrollIndicator = true
         scrollView.showsHorizontalScrollIndicator = false
@@ -27,21 +27,21 @@ class LogInViewController: UIViewController {
         return scrollView
     }()
     private lazy var contentView: UIView = {
-       let view = UIView()
+        let view = UIView()
         view.backgroundColor = .white
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
-//MARK: - Реализуем элементы интерфейса
+    //MARK: - Реализуем элементы интерфейса
     private lazy var iconImageLoginScreen: UIImageView  = {
-       let iconImage = UIImageView()
+        let iconImage = UIImageView()
         iconImage.translatesAutoresizingMaskIntoConstraints = false
         iconImage.image = UIImage(named: "VKIcon")
         return iconImage
     }()
     private lazy var loginTextField: UITextField = {
-       let loginTextField = TextFieldWithPadding()
+        let loginTextField = TextFieldWithPadding()
         loginTextField.translatesAutoresizingMaskIntoConstraints = false
         loginTextField.placeholder = "Email or phone"
         loginTextField.layer.borderColor = UIColor.lightGray.cgColor
@@ -58,7 +58,7 @@ class LogInViewController: UIViewController {
         return loginTextField
     }()
     private lazy var passwordTextField: UITextField = {
-       let passwordTextField = TextFieldWithPadding()
+        let passwordTextField = TextFieldWithPadding()
         passwordTextField.translatesAutoresizingMaskIntoConstraints = false
         passwordTextField.isSecureTextEntry = true
         passwordTextField.placeholder = "Password"
@@ -75,20 +75,28 @@ class LogInViewController: UIViewController {
         passwordTextField.delegate = self
         return passwordTextField
     }()
-    private lazy var logInButton: UIButton = {
-       let logInButton = CustomButton()
-        logInButton.translatesAutoresizingMaskIntoConstraints = false
-        logInButton.setTitle("Log In", for: .normal)
-        logInButton.backgroundColor = UIColor(named: "VKColor")
-        logInButton.alpha = 0.8
-        logInButton.tintColor = .white
-        logInButton.layer.cornerRadius = 10
-        logInButton.isEnabled = false
-        logInButton.addTarget(self, action: #selector(buttonPressed(_:)), for: .touchUpInside)
-        return logInButton
+    
+    private lazy var logInButton: CustomButton = {
+        let button = CustomButton(title: "Войти", titleColor: .white, isEnabled: false) { [unowned self] in
+            guard let login = loginTextField.text else {return}
+            guard let password = passwordTextField.text else {return}
+            let validateCredential = loginDelegate?.check(login: login, password: password)
+            if validateCredential == true {
+                let user = userService.getUser()
+                let profileVC = ProfileViewController()
+                profileVC.currentUser = user
+                navigationController?.pushViewController(profileVC, animated: true)
+            } else {
+                let alert = UIAlertController(title: "Ошибка", message: "Введен неверный логин или пароль", preferredStyle: .alert)
+                let cancelButton = UIAlertAction(title: "OK", style: .cancel)
+                alert.addAction(cancelButton)
+                present(alert, animated: true)
+            }
+        }
+        return button
     }()
     
-//MARK: - Запуск экрана
+    //MARK: - Запуск экрана
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -98,7 +106,7 @@ class LogInViewController: UIViewController {
         hideKeyboardWhenTappedAround()
     }
     
-//MARK: - Отследим открытие клавиатуры
+    //MARK: - Отследим открытие клавиатуры
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupKeyboardObservers()
@@ -108,13 +116,13 @@ class LogInViewController: UIViewController {
         removeKeyboardObservers()
     }
     
-//MARK: - Функция для добавления subviews
+    //MARK: - Функция для добавления subviews
     private func addSubViews () {
         view.addSubview(loginScrollView)
         loginScrollView.addSubview(contentView)
     }
     
-//MARK: - Функция для установки constraints
+    //MARK: - Функция для установки constraints
     private func setupContentView() {
         contentView.addSubview(iconImageLoginScreen)
         contentView.addSubview(loginTextField)
@@ -160,7 +168,7 @@ class LogInViewController: UIViewController {
         ])
     }
     
-//MARK: - Классы для кастомизации элементов
+    //MARK: - Классы для кастомизации элементов
     class TextFieldWithPadding: UITextField {
         var textPadding = UIEdgeInsets (
             top: 8,
@@ -179,28 +187,8 @@ class LogInViewController: UIViewController {
             return rect.inset(by: textPadding)
         }
     }
-    class CustomButton: UIButton {
-        override var isHighlighted: Bool {
-            didSet {
-                if (isHighlighted) {
-                    alpha = 0.8
-                } else {
-                    alpha = 1
-                }
-            }
-        }
-        override var isSelected: Bool {
-            didSet {
-                if (isSelected) {
-                    alpha = 0.8
-                } else {
-                    alpha = 1
-                }
-            }
-        }
-    }
-
-//MARK: - Actions
+    
+    //MARK: - Actions
     private func setupKeyboardObservers() {
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(
@@ -222,10 +210,10 @@ class LogInViewController: UIViewController {
         notificationCenter.removeObserver(self)
     }
     
-//MARK: - @objc functions
+    //MARK: - @objc functions
     @objc func willShowKeyboard(_ notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-            loginScrollView.contentInset.bottom = keyboardSize.height + 55 
+            loginScrollView.contentInset.bottom = keyboardSize.height + 55
         }
     }
     @objc func willHideKeyboard(_ notification: NSNotification) {
@@ -238,22 +226,6 @@ class LogInViewController: UIViewController {
         } else {
             logInButton.isEnabled = true
             logInButton.alpha = 1
-        }
-    }
-    @objc func buttonPressed(_ sender: UIButton) {
-        guard let login = loginTextField.text else {return}
-        guard let password = passwordTextField.text else {return}
-        let validateCredential = loginDelegate?.check(login: login, password: password)
-        if validateCredential == true {
-            let user = userService.getUser()
-            let profileVC = ProfileViewController()
-            profileVC.currentUser = user
-            navigationController?.pushViewController(profileVC, animated: true)
-        } else {
-            let alert = UIAlertController(title: "Ошибка", message: "Введен неверный логин или пароль", preferredStyle: .alert)
-            let cancelButton = UIAlertAction(title: "OK", style: .cancel)
-            alert.addAction(cancelButton)
-            present(alert, animated: true)
         }
     }
     @objc func dismissKeyboad(){
